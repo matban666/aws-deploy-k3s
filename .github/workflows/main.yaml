@@ -30,4 +30,4 @@ jobs:
 
     - name: Run Ansible playbook
       run: |
-        ansible-playbook -i '${{ github.event.inputs.host }},' --private-key ~/.ssh/id_rsa install_k3s.yaml
+        ansible-playbook -i '${{ github.event.inputs.host }},' install_k3s.yaml
