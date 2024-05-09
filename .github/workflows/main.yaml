@@ -1,0 +1,27 @@
+name: Install k3s on AWS instance
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:
+    inputs:
+      host:
+        description: 'AWS Instance Hostname/IP'     
+        required: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Run Ansible playbook
+      run: |
+        ansible-playbook -i '${{ github.event.inputs.host }},' --private-key ~/.ssh/id_rsa install_k3s.yml
