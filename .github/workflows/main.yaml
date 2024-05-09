@@ -24,4 +24,5 @@ jobs:
 
     - name: Run Ansible playbook
       run: |
-        ansible-playbook -i '${{ github.event.inputs.host }},' --private-key ~/.ssh/id_rsa install_k3s.yml
+        export TARGET_HOST=${{ github.event.inputs.host }}
+        ansible-playbook --private-key ~/.ssh/id_rsa install_k3s.yml

@@ -1,5 +1,5 @@
 ---
-- hosts: your_aws_instance
+- hosts: "{{ lookup('env','TARGET_HOST') }}"
   become: yes
   tasks:
     - name: Download k3s installation script
