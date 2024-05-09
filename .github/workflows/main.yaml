@@ -30,4 +30,4 @@ jobs:
 
     - name: Run Ansible playbook
       run: |
-        ansible-playbook -i '${{ github.event.inputs.host }},ansible_user=ec2-user' install_k3s.yaml
+        ansible-playbook  -u ec2-user -i '${{ github.event.inputs.host }},' install_k3s.yaml
