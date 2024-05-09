@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ lookup('env','TARGET_HOST') }}"
+- hosts: all
   become: yes
   tasks:
     - name: Download k3s installation script
