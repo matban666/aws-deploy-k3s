@@ -7,6 +7,12 @@
         url: https://get.k3s.io
         dest: /tmp/install_k3s.sh
         mode: '0755'
+        
+    - name: Set K3S_KUBECONFIG_MODE environment variable
+      set_fact:
+        K3S_KUBECONFIG_MODE_FACT: "644"
 
     - name: Install k3s
       command: /tmp/install_k3s.sh
+      environment:
+        K3S_KUBECONFIG_MODE: "{{ K3S_KUBECONFIG_MODE_FACT }}"
