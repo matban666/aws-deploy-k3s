@@ -21,8 +21,8 @@
     #     INSTALL_K3S_SKIP_SELINUX_RPM_FACT: "true"
 
     - name: Install k3s
-      command: K3S_KUBECONFIG_MODE=644 INSTALL_K3S_SELINUX_WARN=true INSTALL_K3S_SKIP_SELINUX_RPM=true /tmp/install_k3s.sh
-      # environment:
-      #   K3S_KUBECONFIG_MODE: "{{ K3S_KUBECONFIG_MODE_FACT }}"
-      #   INSTALL_K3S_SELINUX_WARN: "{{ INSTALL_K3S_SELINUX_WARN_FACT }}"
-      #   INSTALL_K3S_SKIP_SELINUX_RPM: "{{ INSTALL_K3S_SKIP_SELINUX_RPM_FACT }}"
+      command: /tmp/install_k3s.sh
+      environment:
+        K3S_KUBECONFIG_MODE: "644"
+        INSTALL_K3S_SELINUX_WARN: "true"
+        INSTALL_K3S_SKIP_SELINUX_RPM: "true"
